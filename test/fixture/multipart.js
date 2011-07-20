@@ -1,3 +1,57 @@
+exports['preamble'] = {
+  boundary: 'lulz',
+  raw:
+    'this is a preamble \r\nthis is a preamble this is\r\n a preamble this is a preamble\r\n' +
+    '--lulz\r\n' +
+    'Content-Type: text/xml\r\n\r\n' +
+    'this is body1\r\n' +
+    '--lulz\r\n' +
+    'Content-Type: image/jpeg\r\n\r\n' +
+    'body2\r\n' +
+    '--lulz--',
+  parts: [ 
+        {
+          headers: {
+            'Content-Type': 'text/xml'
+          },
+          data: 'this is body1'
+        },
+        {
+          headers: {
+            'Content-Type': 'image/jpeg'
+          },
+          data: 'body2'
+        }
+    ]
+};
+
+exports['preamble'] = {
+  boundary: 'zzzzzzzzzz',
+  raw:
+    '\r\n' +
+    '--zzzzzzzzzz\r\n' +
+    'Content-Type: text/xml\r\n\r\n' +
+    'this is body1\r\n' +
+    '--zzzzzzzzzz\r\n' +
+    'Content-Type: image/jpeg\r\n\r\n' +
+    'body2\r\n' +
+    '--zzzzzzzzzz--',
+  parts: [ 
+        {
+          headers: {
+            'Content-Type': 'text/xml'
+          },
+          data: 'this is body1'
+        },
+        {
+          headers: {
+            'Content-Type': 'image/jpeg'
+          },
+          data: 'body2'
+        }
+    ]
+};
+
 exports['rfc1867'] =
   { boundary: 'AaB03x',
     raw:

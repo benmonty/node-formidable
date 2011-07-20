@@ -65,8 +65,8 @@ Object.keys(fixtures).forEach(function(name) {
       if (fixture.expectError) {
         return;
       }
-      puts('-- ERROR --');
-      p(chunk.toString('ascii'));
+      console.error('-- ERROR --');
+      console.log(chunk.toString('ascii'));
       throw new Error(chunk.length+' bytes written, but only '+nparsed+' bytes parsed!');
     }
   }
