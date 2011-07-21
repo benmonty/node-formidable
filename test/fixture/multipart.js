@@ -1,4 +1,48 @@
-exports['preamble'] = {
+var multipartBodyMix = 'preamble\r\n--boundary\r\ncontent-type: image/jpeg\r\nobject-id: 5\r\ncontent-id: 1\r\n\r\n' +
+                        'body0\r\n--boundary\r\ncontent-type: text/xml\r\nobject-id: 3\r\ncontent-id: 2\r\n\r\n' +
+                        'body1\r\n--boundary\r\ncontent-type: image/jpeg\r\nobject-id: 0\r\ncontent-id: 7\r\n\r\n' +
+                        'body2\r\n--boundary\r\ncontent-type: text/xml\r\nobject-id: lol\r\ncontent-id: lulz\r\n\r\n' +
+                        'body3\r\n--boundary--\r\n';
+
+exports['preamble0'] = {
+  boundary: 'boundary',
+  raw: multipartBodyMix,
+  parts: [
+    {
+      headers: {
+        'content-type': 'image/jpeg',
+        'object-id': '5',
+        'content-id': '1'
+      },
+      data: 'body0'
+    },
+    {
+      headers: {
+        'content-type': 'text/xml',
+        'object-id': '3',
+        'content-id': '2'
+      },
+      data: 'body1'
+    },
+    {
+      headers: {
+        'content-type': 'image/jpeg',
+        'object-id': '0',
+        'content-id': '7'
+      },
+      data: 'body2'
+    },
+    {
+      headers: {
+        'content-type': 'text/xml',
+        'object-id': 'lol',
+        'content-id': 'lulz'
+      },
+      data: 'body3'
+    }
+  ]
+};
+exports['preamble1'] = {
   boundary: 'lulz',
   raw:
     'this is a preamble \r\nthis is a preamble this is\r\n a preamble this is a preamble\r\n' +
@@ -25,7 +69,7 @@ exports['preamble'] = {
     ]
 };
 
-exports['preamble'] = {
+exports['preamble2'] = {
   boundary: 'zzzzzzzzzz',
   raw:
     '\r\n' +

@@ -51,7 +51,6 @@ Object.keys(fixtures).forEach(function(name) {
   }
 
   buffer.write(fixture.raw, 'binary', 0);
-
   while (offset < buffer.length) {
     if (offset + CHUNK_LENGTH < buffer.length) {
       chunk = buffer.slice(offset, offset+CHUNK_LENGTH);
